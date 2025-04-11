@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dave Rensin - Innovator | Leader | Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Add subtle animation for section appearance */
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Style for active nav link */
+        .nav-active {
+            font-weight: 600;
+            color: #3b82f6; /* Example blue color */
+        }
+        /* Ensure images within cards don't break layout */
+        .card-img {
+             object-fit: cover; /* Cover the area */
+             height: 12rem; /* Fixed height for consistency (h-48) */
+             width: 100%;
+        }
+        /* Ensure book/article cover images fit well */
+        .book-cover-img {
+            object-fit: cover; /* Changed to cover for potentially wider article images */
+            height: 16rem; /* Slightly taller for book covers (h-64) */
+            width: 100%;
+            background-color: #f9fafb; /* Light background for empty space */
+        }
+        /* Styling for timeline badges */
+        .timeline-badge {
+            display: inline-block;
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 600; /* font-semibold */
+            padding: 0.25rem 0.75rem; /* px-3 py-1 */
+            border-radius: 9999px; /* rounded-full */
+            margin-left: 0.5rem; /* ml-2 */
+            vertical-align: middle;
+            margin-top: 0.25rem; /* Add small top margin for wrapping */
+        }
+        /* Styling for company logos in timeline */
+        .timeline-logo {
+            height: 2rem; /* h-8 */
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 0.75rem; /* mb-3 */
+        }
+         /* Styling for logos in board/research cards */
+        .board-logo {
+            height: 2.5rem; /* h-10 */
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 1rem; /* mb-4 */
+            margin-left: auto; /* mx-auto */
+            margin-right: auto; /* mx-auto */
+        }
+         /* Ensure profile image covers the circle area */
+        .profile-img {
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-900">Dave Rensin</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">About</a>
+                <a href="#expertise" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">Expertise</a>
+                <a href="#experience" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">Experience</a>
+                <a href="#ventures" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">Ventures</a>
+                <a href="#boards" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">Boards</a>
+                <a href="#publications" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">Publications</a>
+                <a href="#research" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">Research</a>
+                <a href="#speaking" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">Speaking</a>
+                <a href="#connect" class="text-gray-600 hover:text-blue-600 transition duration-300 nav-link">Connect</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-2">
+            <a href="#about" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">About</a>
+            <a href="#expertise" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">Expertise</a>
+            <a href="#experience" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">Experience</a>
+            <a href="#ventures" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">Ventures</a>
+            <a href="#boards" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">Boards</a>
+            <a href="#publications" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">Publications</a>
+            <a href="#research" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">Research</a>
+            <a href="#speaking" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">Speaking</a>
+            <a href="#connect" class="block px-6 py-2 text-gray-600 hover:bg-gray-100 nav-link">Connect</a>
+        </div>
+    </header>
+
+    <section id="hero" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-24 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+             <img src="https://storage.googleapis.com/dkr.bio/headshot%20bw.jpg" alt="Dave Rensin" class="profile-img w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-white shadow-lg" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e2e8f0/64748b?text=DR';">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Dave Rensin</h1>
+            <p class="text-xl md:text-2xl font-light mb-8">Distinguished Engineer. Entrepreneur. Author.</p>
+            <p class="max-w-3xl mx-auto text-lg md:text-xl mb-10">Driving innovation in AI, cloud computing, and large-scale systems. Passionate about technology that empowers human flourishing.</p>
+            <a href="#about" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 shadow-md">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 md:py-28 section-fade-in"> <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">About Me</h2>
+            <div class="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed space-y-6">
+                <p>With three decades at the forefront of the tech industry, I currently serve as a Distinguished Engineer at Google. My focus is helping Alphabet execute the right long-term technical investments, particularly in the transformative fields of Machine Learning and AI infrastructure.</p>
+                <p>My journey includes building and scaling large global organizations, founding multiple successful startups leading to both acquisition and IPO, authoring bestselling books, and securing 16 patents. I have deep expertise in cloud computing, distributed architecture, and software development.</p>
+                <p>Fundamentally, I believe in technology's potential to magnify human flourishing. I am driven to ensure innovation serves greater human self-determination and freedom of expression.</p>
+                <p>Based in Austin, Texas, I continue to explore the intersection of technology, leadership, and positive global impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="py-20 md:py-28 bg-white section-fade-in"> <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Areas of Expertise</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-brain fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">AI & Machine Learning</h3><p class="text-gray-600">Strategic investment and infrastructure development for large-scale AI/ML systems.</p></div>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-cloud fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Cloud Computing & Architecture</h3><p class="text-gray-600">Deep experience across major cloud platforms (Google Cloud, AWS) and distributed systems design.</p></div>
+                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-sitemap fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Site Reliability Engineering (SRE)</h3><p class="text-gray-600">Pioneered Google's Customer Reliability Engineering (CRE) function, expert in large-scale production engineering.</p></div>
+                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-rocket fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Startups & Entrepreneurship</h3><p class="text-gray-600">Multi-time founder with successful exits via both acquisition and IPO.</p></div>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-mobile-alt fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Mobile & Wireless Tech</h3><p class="text-gray-600">Early innovator in mobile video streaming and wireless internet services.</p></div>
+                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-lightbulb fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Innovation & Patents</h3><p class="text-gray-600">Holder of 16 US patents across various technology domains.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 md:py-28 section-fade-in"> <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Career Journey</h2>
+            <div class="relative max-w-4xl mx-auto">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-blue-200 hidden md:block"></div>
+                <div class="mb-12 flex md:items-center w-full"> <div class="hidden md:block w-1/2 pr-8 text-right"><h3 class="text-xl font-semibold text-blue-600">Distinguished Engineer</h3><p class="text-gray-500">Google | Sep 2022 - Present</p></div><div class="md:w-1/2 md:pl-8"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">Distinguished Engineer</h3><p class="md:hidden text-sm text-gray-500 mb-3">Google | Sep 2022 - Present</p><img src="https://www.citypng.com/public/uploads/preview/google-logo-icon-gsuite-hd-701751694791470gzbayltphh.png" alt="Google Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Leading Capital Engineering (CapEng), advising on infrastructure deployment and long-term technical investments, especially in AI/ML.</p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full md:flex-row-reverse"> <div class="hidden md:block w-1/2 pl-8 text-left"><h3 class="text-xl font-semibold text-blue-600">SVP of Engineering</h3><p class="text-gray-500">Pendo.io | Mar 2021 - Sep 2022</p></div><div class="md:w-1/2 md:pr-8 md:text-right"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">SVP of Engineering</h3><p class="md:hidden text-sm text-gray-500 mb-3">Pendo.io | Mar 2021 - Sep 2022</p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2Iv0BRiJyRkdNUwQ00i_jAaIEA7tlWaPL8Q&s" alt="Pendo.io Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Led engineering for Pendo's core product suite.</p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full"> <div class="hidden md:block w-1/2 pr-8 text-right"><h3 class="text-xl font-semibold text-blue-600">Senior Director Of Engineering</h3><p class="text-gray-500">Google | May 2019 - Mar 2021</p></div><div class="md:w-1/2 md:pl-8"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">Senior Director Of Engineering</h3><p class="md:hidden text-sm text-gray-500 mb-3">Google | May 2019 - Mar 2021</p><img src="https://www.citypng.com/public/uploads/preview/google-logo-icon-gsuite-hd-701751694791470gzbayltphh.png" alt="Google Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Served on a team advising Alphabet's CFO on capital allocation for Google's businesses and long-term technical investments. Provided strategic advisory for Google SRE.</p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full md:flex-row-reverse"> <div class="hidden md:block w-1/2 pl-8 text-left"><h3 class="text-xl font-semibold text-blue-600">Director, CRE & Network Capacity</h3><p class="text-gray-500">Google | May 2018 - May 2019</p></div><div class="md:w-1/2 md:pr-8 md:text-right"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">Director, CRE & Network Capacity</h3><p class="md:hidden text-sm text-gray-500 mb-3">Google | May 2018 - May 2019</p><img src="https://www.citypng.com/public/uploads/preview/google-logo-icon-gsuite-hd-701751694791470gzbayltphh.png" alt="Google Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Led the function forecasting and planning capacity for Google's global network, supporting all products and services, in addition to CRE responsibilities.</p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full"> <div class="hidden md:block w-1/2 pr-8 text-right"><h3 class="text-xl font-semibold text-blue-600">Director, Customer Reliability Engineering (CRE)</h3><p class="text-gray-500">Google | Oct 2016 - May 2018</p></div><div class="md:w-1/2 md:pl-8"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">Director, Customer Reliability Engineering (CRE)</h3><p class="md:hidden text-sm text-gray-500 mb-3">Google | Oct 2016 - May 2018</p><img src="https://www.citypng.com/public/uploads/preview/google-logo-icon-gsuite-hd-701751694791470gzbayltphh.png" alt="Google Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Founded and led the customer-facing portion of Google's Site Reliability Engineering (SRE) organization.</p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full md:flex-row-reverse"> <div class="hidden md:block w-1/2 pl-8 text-left"><h3 class="text-xl font-semibold text-blue-600">Director, Global Cloud Customer Operations</h3><p class="text-gray-500">Google | Nov 2014 - Oct 2016</p></div><div class="md:w-1/2 md:pr-8 md:text-right"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">Director, Global Cloud Customer Operations</h3><p class="md:hidden text-sm text-gray-500 mb-3">Google | Nov 2014 - Oct 2016</p><img src="https://www.citypng.com/public/uploads/preview/google-logo-icon-gsuite-hd-701751694791470gzbayltphh.png" alt="Google Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Built and led Google Cloud's global customer support and operations teams, including 24x7 support, Technical Account Management, and Strategic Customer Engineering.</p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full"> <div class="hidden md:block w-1/2 pr-8 text-right"><h3 class="text-xl font-semibold text-blue-600">Senior Vice President, Products</h3><p class="text-gray-500">Novitas | Nov 2013 - Nov 2014</p></div><div class="md:w-1/2 md:pl-8"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">Senior Vice President, Products</h3><p class="md:hidden text-sm text-gray-500 mb-3">Novitas | Nov 2013 - Nov 2014</p><img src="https://media.licdn.com/dms/image/C510BAQFdc-CXHWd18w/company-logo_200_200/0?e=2130710400&v=beta&t=GAry9Fe5i6l7VGPMFXdZTjbCoHAb_EoeeiCC9pRh4Rw" alt="Novitas Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Responsible for all product aspects (engineering, marketing, operations) of a job matching site for US Armed Forces members, utilizing large-scale text analytics.</p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full md:flex-row-reverse"> <div class="hidden md:block w-1/2 pl-8 text-left"><h3 class="text-xl font-semibold text-blue-600">Principal Solutions Architect</h3><p class="text-gray-500">Amazon Web Services (AWS) | Jan 2013 - Nov 2013</p></div><div class="md:w-1/2 md:pr-8 md:text-right"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">Principal Solutions Architect</h3><p class="md:hidden text-sm text-gray-500 mb-3">AWS | Jan 2013 - Nov 2013</p><img src="https://download.logo.wine/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.png" alt="AWS Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Served as the authoritative technical reference to the US Government for a major cloud offering, contributing significantly to the winning proposal and customer accreditation.</p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full"> <div class="hidden md:block w-1/2 pr-8 text-right"><h3 class="text-xl font-semibold text-blue-600">Founding CEO / Chief Scientist</h3><p class="text-gray-500">Reality Mobile LLC | Oct 2003 - Jan 2013</p></div><div class="md:w-1/2 md:pl-8"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">Founding CEO / Chief Scientist</h3><p class="md:hidden text-sm text-gray-500 mb-3">Reality Mobile LLC | Oct 2003 - Jan 2013</p><img src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1397200994/7db19aa22b9a25d7acc616ba04bb639c.gif" alt="Reality Mobile LLC Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Principal inventor and operational manager for enterprise mobile video streaming software targeting heavy industry over limited bandwidth connections.<span class="timeline-badge bg-purple-100 text-purple-800">Founder</span><span class="timeline-badge bg-green-100 text-green-800">Acquired</span></p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full md:flex-row-reverse"> <div class="hidden md:block w-1/2 pl-8 text-left"><h3 class="text-xl font-semibold text-blue-600">CTO / CPO / Chief Strategist</h3><p class="text-gray-500">Omnisky Corp. | Mar 2000 - Jul 2001</p></div><div class="md:w-1/2 md:pr-8 md:text-right"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">CTO / CPO / Chief Strategist</h3><p class="md:hidden text-sm text-gray-500 mb-3">Omnisky Corp. | Mar 2000 - Jul 2001</p><img src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1422145605/qriuieinnyj0xl1rripe.png" alt="Omnisky Corp. Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Responsible for engineering, QA, product marketing/management for the first commercial wireless internet service for palm-sized devices.<span class="timeline-badge bg-blue-100 text-blue-800">IPO</span><span class="timeline-badge bg-green-100 text-green-800">Acquired</span></p></div></div></div>
+                <div class="mb-12 flex md:items-center w-full"> <div class="hidden md:block w-1/2 pr-8 text-right"><h3 class="text-xl font-semibold text-blue-600">CTO / Co-Founder</h3><p class="text-gray-500">Riverbed Technologies | Sep 1998 - Feb 2000</p></div><div class="md:w-1/2 md:pl-8"><div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"><h3 class="md:hidden text-xl font-semibold text-blue-600 mb-1">CTO / Co-Founder</h3><p class="md:hidden text-sm text-gray-500 mb-3">Riverbed Technologies | Sep 1998 - Feb 2000</p><img src="https://media.licdn.com/dms/image/v2/C510BAQGkNBjHRdQhKQ/company-logo_100_100/company-logo_100_100/0/1631357913950?e=1749686400&v=beta&t=6sAx7d9mxgTqhkvcAR1s8ls5QxJNXko7Owc9xtp-V68" alt="Riverbed Technologies Logo" class="timeline-logo" onerror="this.onerror=null; this.src='https://placehold.co/80x32/e2e8f0/64748b?text=Logo';"><p class="text-gray-700">Technical co-founder and original designer of enterprise middleware connecting corporate systems to small devices. Responsible for engineering, QA, product marketing.<span class="timeline-badge bg-purple-100 text-purple-800">Co-founder</span><span class="timeline-badge bg-green-100 text-green-800">Acquired ($1B+)</span></p></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ventures" class="py-20 md:py-28 bg-white section-fade-in"> <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Entrepreneurial Ventures</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 text-center hover:scale-105 transition duration-300"><img src="https://media.licdn.com/dms/image/v2/C510BAQGkNBjHRdQhKQ/company-logo_100_100/company-logo_100_100/0/1631357913950?e=1749686400&v=beta&t=6sAx7d9mxgTqhkvcAR1s8ls5QxJNXko7Owc9xtp-V68" alt="Riverbed Technologies Logo" class="h-12 mx-auto mb-4 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x50/0ea5e9/ffffff?text=Riverbed';"><h3 class="text-xl font-semibold mb-2 text-gray-900">Riverbed Technologies</h3><p class="text-gray-600 mb-3">Co-founder & CTO</p><p class="text-gray-700 mb-4">Enterprise middleware connecting corporate systems to mobile devices. Basis for Palm HotSync Server.</p><span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full">Acquired ($1B+)</span></div>
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 text-center hover:scale-105 transition duration-300"><img src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1422145605/qriuieinnyj0xl1rripe.png" alt="Omnisky Corp. Logo" class="h-12 mx-auto mb-4 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x50/0ea5e9/ffffff?text=Omnisky';"><h3 class="text-xl font-semibold mb-2 text-gray-900">Omnisky Corp.</h3><p class="text-gray-600 mb-3">CTO / CPO / Chief Strategist</p><p class="text-gray-700 mb-4">Pioneered the first commercial wireless internet service for palm-sized devices.</p><span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mr-2">IPO (NASDAQ: OMNY)</span><span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full">Acquired</span></div>
+                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 text-center hover:scale-105 transition duration-300"><img src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1397200994/7db19aa22b9a25d7acc616ba04bb639c.gif" alt="Reality Mobile LLC Logo" class="h-12 mx-auto mb-4 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x50/0ea5e9/ffffff?text=Reality+Mobile';"><h3 class="text-xl font-semibold mb-2 text-gray-900">Reality Mobile LLC</h3><p class="text-gray-600 mb-3">Founding CEO / Chief Scientist</p><p class="text-gray-700 mb-4">Developed enterprise-grade mobile video streaming software for challenging, low-bandwidth environments.</p><span class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold px-3 py-1 rounded-full">Founder</span><span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full ml-2">Acquired</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="boards" class="py-20 md:py-28 section-fade-in"> <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Board Memberships & Advisory Roles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                    <img src="https://media.licdn.com/dms/image/v2/C4D0BAQEY8SR1kFutMQ/company-logo_100_100/company-logo_100_100/0/1648577411954/u_s_department_of_commerce_logo?e=1749686400&v=beta&t=QB04w2ucqLRweyyF9E_x3dqP07AJgSJA8k6zA3bhChs" alt="U.S. Department of Commerce Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow text-center">International Trade Advisory Council</h3>
+                    <p class="text-gray-500 mb-3 text-sm text-center">U.S. Department of Commerce | Jan 2004 - Jan 2007</p>
+                    <p class="text-gray-700 text-sm text-center">Served at the request of the President and Secretary of Commerce on foreign technology trade policy.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                     <img src="https://media.licdn.com/dms/image/v2/C4D0BAQH3g1OaJJNAuQ/company-logo_100_100/company-logo_100_100/0/1631363075051?e=1749686400&v=beta&t=wKjbtO163m8buJAAFN23ItG2yWHv1HhJSlIzzddDyfQ" alt="George Mason University Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow text-center">George Mason University - Computer Game Design</h3>
+                     <p class="text-gray-500 mb-3 text-sm text-center">Advisory Role | Jan 2011 - Jan 2014</p>
+                    <p class="text-gray-700 text-sm text-center">Helped define the intersection of gaming technology and practical applications, influencing curriculum.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                     <img src="https://www.beachheadsolutions.com/hs-fs/hubfs/beachhead-solutions-logo.png?width=300&height=86&name=beachhead-solutions-logo.png" alt="Beachhead Solutions Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 text-center">Beachhead Solutions</h3>
+                     <p class="text-gray-500 mb-3 text-sm text-center">Board Member | Jan 2003 - Present</p>
+                    <p class="text-gray-700 text-sm mb-2 text-center">First company for self-destructing data systems on mobile devices. Original inventor of core tech.
+                        <span class="timeline-badge bg-yellow-100 text-yellow-800">Inventor</span>
+                    </p>
+                     <a href="https://en.wikipedia.org/wiki/Beachhead_Solutions" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm inline-block text-center w-full">Learn More →</a>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                     <img src="https://media.licdn.com/dms/image/v2/C560BAQECNp0SwQ4fMw/company-logo_100_100/company-logo_100_100/0/1675873354237/govini_logo?e=1749686400&v=beta&t=NbYTgINVMSZQot36so1X_meKTYKjnk_N2SR_cmIZwrM" alt="Govini Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow text-center">Govini</h3>
+                     <p class="text-gray-500 mb-3 text-sm text-center">Board of Advisors | Jan 2017 - Feb 2020</p>
+                    <p class="text-gray-700 text-sm text-center">Advised DC-based Government services and technology firm.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                     <img src="https://media.licdn.com/dms/image/v2/C4E0BAQHZhW2aR_fxZA/company-logo_100_100/company-logo_100_100/0/1662923441134?e=1749686400&v=beta&t=rtNSMZl33945CyeZDLQ3vSwOZE2YhAf-mqN7m5-fwqU" alt="Aalyria Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow text-center">Aalyria</h3>
+                     <p class="text-gray-500 mb-3 text-sm text-center">Advisor | Aug 2021 - Present</p>
+                    <p class="text-gray-700 text-sm text-center">Assisting with technical and business strategy for all-domain networking.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                     <img src="https://wisy.ai/wp-content/uploads/2025/03/Wisy_Logotype_Blue-1.png" alt="Wisy Platforms, Inc. Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow text-center">Wisy Platforms, Inc.</h3>
+                     <p class="text-gray-500 mb-3 text-sm text-center">Advisor | Jan 2025 - Present</p>
+                    <p class="text-gray-700 text-sm text-center">Advising AI-powered retail execution platform integrating real-time store data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="py-20 md:py-28 bg-white section-fade-in"> <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-900">Books</h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12">Authored and contributed to key texts covering SRE, Cloud Infrastructure, Kubernetes, Databases, and more.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-200 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://learning.oreilly.com/library/cover/9781492029496/250w/" alt="The Site Reliability Workbook Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/e0e7ff/4338ca?text=SRE+Workbook';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">The Site Reliability Workbook: Practical Ways to Implement SRE</h3><a href="https://www.amazon.com/Site-Reliability-Workbook-Practical-Implement/dp/1492029505" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-200 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://learning.oreilly.com/library/cover/9781492076803/250w/" alt="Implementing Service Level Objectives Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/dbeafe/1e40af?text=Implementing+SLOs';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">Implementing Service Level Objectives: A Practical Guide to SLIS, SLOS, and Error...</h3><a href="https://www.amazon.com/Implementing-Service-Level-Objectives-Practical/dp/1492076813" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-200 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://learning.oreilly.com/library/cover/9781492081487/250w/" alt="97 Things Every SRE Should Know Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/bfdbfe/1d4ed8?text=97+Things+SRE';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">97 Things Every SRE Should Know: Collective Wisdom from the Experts</h3><a href="https://www.amazon.com/Things-Every-SRE-Should-Know-ebook/dp/B08P2CP1FK" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-200 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://learning.oreilly.com/library/cover/9781449333577/250w/" alt="Building a Windows IT Infrastructure in the Cloud Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/bbf7d0/15803d?text=Windows+IT+Cloud';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">Building a Windows IT Infrastructure in the Cloud: Distributed Hosted Environments...</h3><a href="https://www.amazon.com/Building-Windows-Infrastructure-Cloud-Environments/dp/1449333583" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-200 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://freecomputerbooks.com/covers/Kubernetes-Scheduling-the-Future-at-Cloud-Scale.jpg" alt="Kubernetes- Scheduling the Future at Cloud Scale Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/e0e7ff/4338ca?text=Kubernetes';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">Kubernetes- Scheduling the Future at Cloud Scale</h3><a href="https://www.amazon.com/Kubernetes-Scheduling-Future-Cloud-Scale/dp/B07G3H1DWK" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-100 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://m.media-amazon.com/images/I/51T30492YWL._AC_UF350,350_QL50_.jpg" alt="Microsoft SQL Server 7 Secrets Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/dbeafe/1e40af?text=SQL+Server+7';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">Microsoft SQL Server 7 Secrets</h3><a href="https://www.amazon.com/Microsoft-SQL-Server-Secrets/dp/0764532456" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-100 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://m.media-amazon.com/images/I/71BG1PAWYKL._AC_UF1000,1000_QL80_.gif" alt="Asp: Active Server Pages Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/bfdbfe/1d4ed8?text=ASP';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">Asp: Active Server Pages</h3><a href="https://www.amazon.com/Asp-Active-Andrew-M-Fedorchek/dp/0764580426" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-100 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://m.media-amazon.com/images/I/716FYKDK1PL._AC_UF1000,1000_QL80_.gif" alt="SQL Server 6.5 Secrets Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/bbf7d0/15803d?text=SQL+Server+6.5';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">SQL Server 6.5 Secrets</h3><a href="https://www.amazon.com/SQL-Server-6-5-Secrets/dp/1568846983" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-center mt-16 mb-10 text-gray-800">Popular Articles</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transform hover:scale-105 transition duration-300 flex flex-col">
+                    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*KxhCpugIUB1t8JZiNqVKzQ.png" alt="When Remote Work Didn’t Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x225/e0e7ff/4338ca?text=Article';">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">When Remote Work Didn’t</h3>
+                        <a href="https://drensin.medium.com/when-remote-work-didnt-2faded382ba9" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Read Article →</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transform hover:scale-105 transition duration-300 flex flex-col">
+                    <img src="https://miro.medium.com/v2/resize:fit:520/format:webp/1*CzicSzGcNIU82FnylVrMkg.png" alt="Meetings are Bugs Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x225/dbeafe/1e40af?text=Article';">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">Meetings are Bugs, Not Features — Here’s How You Squish Them!</h3>
+                        <a href="https://medium.com/@drensin/meetings-are-bugs-not-features-heres-how-you-squish-them-c7485b514572" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Read Article →</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transform hover:scale-105 transition duration-300 flex flex-col">
+                    <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/0*bTn58K5Acix4CLvL" alt="Lessons I Learned at Google Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x225/bfdbfe/1d4ed8?text=Article';">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">Lessons I Learned at Google</h3>
+                        <a href="https://medium.com/@drensin/lessons-i-learned-at-google-a1d489f163b" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Read Article →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="py-20 md:py-28 section-fade-in"> <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Research and Patents</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Google_Scholar_logo.svg/1200px-Google_Scholar_logo.svg.png" alt="Google Scholar Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 flex-grow text-center">Google Scholar Profile</h3>
+                    <p class="text-gray-600 mb-4 text-sm text-center">View citations, h-index, and list of publications indexed by Google Scholar.</p>
+                    <a href="https://scholar.google.com/citations?user=Tw4QsxkAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-center">View Profile →</a>
+                </div>
+                 <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                    <img src="https://opportunitydesk.org/wp-content/uploads/2021/11/Google-Research-Scholar-Program-2022-for-Early-career-Professors.png" alt="Google Research Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 flex-grow text-center">Google Research Profile</h3>
+                    <p class="text-gray-600 mb-4 text-sm text-center">Explore official research contributions, projects, and activities at Google Research.</p>
+                    <a href="https://research.google/people/davidrensin/?&type=google" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-center">View Profile →</a>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300 flex flex-col">
+                    <img src="https://s3files.core77.com/blog/images/NEWS-11763-cfe9230fa85063b777cebaa14869254c.jpg" alt="Google Patents Logo" class="board-logo" onerror="this.onerror=null; this.src='https://placehold.co/100x40/e2e8f0/64748b?text=Logo';">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-900 flex-grow text-center">Patents</h3>
+                    <p class="text-gray-600 mb-4 text-sm text-center">30 years of innovation in mobile, wireless, security, and cloud.</p>
+                    <a href="https://patents.google.com/?inventor=Rensin%2c+David&num=25&oq=Rensin%2c+David" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-center">View List →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="speaking" class="py-20 md:py-28 bg-white section-fade-in"> <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Speaking & Engagements</h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12">Sharing insights on technology trends, leadership, and building high-performing teams at industry events and conferences.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                 <div class="bg-gray-50 rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col"><img src="https://i.ytimg.com/vi/R-7nlm2lUFc/hqdefault.jpg" alt="Engineering Management – The Missing Manual" class="card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x350/e5e7eb/4b5563?text=Eng+Mgmt';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow">Engineering Management – The Missing Manual</h3><p class="text-gray-500 mb-3 text-sm">Published: Dec 2023</p><p class="text-gray-700 mb-4 text-sm">Insights on engineering leadership and management frameworks.</p><a href="https://youtu.be/R-7nlm2lUFc" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Watch Video →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col"><img src="https://i.ytimg.com/vi/MpPuIk8opXo/hqdefault.jpg" alt="Human Beings: The Missing Instruction Manual" class="card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x350/d1d5db/374151?text=Hypergrowth+Summit';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow">Human Beings: The Missing Instruction Manual</h3><p class="text-gray-500 mb-3 text-sm">Hypergrowth Engineering Summit - Jul 2022</p><p class="text-gray-700 mb-4 text-sm">Understanding the human brain to optimize how engineering leaders organize and manage teams.</p><a href="https://youtu.be/MpPuIk8opXo" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Watch Video →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col"><img src="https://i.ytimg.com/vi/Yk5XC6ZMsf8/hqdefault.jpg" alt="Engineering Management: Interviews & Hiring" class="card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x350/e5e7eb/4b5563?text=EM+Hiring';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow">Engineering Management: Interviews & Hiring</h3><p class="text-gray-500 mb-3 text-sm">Exponent Interview - Jun 2021</p><p class="text-gray-700 mb-4 text-sm">Insights on hiring engineering managers and what makes a great EM.</p><a href="https://youtu.be/Yk5XC6ZMsf8" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Watch Video →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col"><img src="https://i.ytimg.com/vi/VP1ZGwFDyzY/hqdefault.jpg" alt="Ruin Your Systems By Making Them Perfect" class="card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x350/d1d5db/374151?text=Agile+India';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow">Ruin Your Systems By Making Them Perfect</h3><p class="text-gray-500 mb-3 text-sm">Agile India - Nov 2020</p><p class="text-gray-700 mb-4 text-sm">Understanding why chasing perfection can destroy systems and how imperfection helps.</p><a href="https://youtu.be/VP1ZGwFDyzY" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Watch Video →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col"><img src="https://i.ytimg.com/vi/sn6wokyCZSA/hqdefault.jpg" alt="Chaos Engineering for People Systems" class="card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x350/e5e7eb/4b5563?text=Chaos+Conf';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow">Chaos Engineering for People Systems</h3><p class="text-gray-500 mb-3 text-sm">Chaos Conf - Oct 2019</p><p class="text-gray-700 mb-4 text-sm">A thoughtful, humorous, cutting-edge talk applying Chaos Engineering principles to organizations.</p><a href="https://youtu.be/sn6wokyCZSA" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Watch Video →</a></div></div>
+                <div class="bg-gray-50 rounded-lg shadow-md border border-gray-200 overflow-hidden flex flex-col"><img src="https://i.ytimg.com/vi/psa160lpUXM/hqdefault.jpg" alt="Do This or Fail (Seriously!)" class="card-img" onerror="this.onerror=null; this.src='https://placehold.co/600x350/d1d5db/374151?text=Cerner+Talk';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-semibold mb-2 text-gray-900 flex-grow">Do This or Fail (Seriously!)</h3><p class="text-gray-500 mb-3 text-sm">Cerner Tech Talk - Jul 2017</p><p class="text-gray-700 mb-4 text-sm">Learn the one thing you must do to succeed in your cloud journey and how Google SRE partners with you.</p><a href="https://youtu.be/psa160lpUXM" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto">Watch Video →</a></div></div>
+            </div>
+             <div class="text-center mt-12">
+                 <a href="https://linktr.ee/drensin" target="_blank" rel="noopener noreferrer" class="text-lg text-blue-600 hover:underline">
+                     Find more talks and interviews here.
+                 </a>
+             </div>
+        </div>
+    </section>
+
+    <section id="connect" class="py-20 md:py-28 bg-gradient-to-r from-blue-600 to-indigo-700 text-white section-fade-in">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Connect</h2>
+            <div class="flex justify-center space-x-6">
+                <a href="https://linkedin.com/in/drensin" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin fa-3x"></i></a>
+                <a href="https://github.com/drensin" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition duration-300" aria-label="GitHub">
+                    <i class="fab fa-github fa-3x"></i>
+                </a>
+                <a href="https://x.com/drensin" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition duration-300" aria-label="Twitter / X"><i class="fab fa-x-twitter fa-3x"></i></a>
+                <a href="https://linktr.ee/drensin" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition duration-300" aria-label="Linktree"><i class="fas fa-link fa-3x"></i> </a>
+                 <a href="mailto:drensin@gmail.com" class="text-white hover:text-blue-200 transition duration-300" aria-label="Email"><i class="fas fa-envelope fa-3x"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© <span id="current-year"></span> Dave Rensin. All rights reserved.</p>
+            <p class="text-sm mt-2">Website designed with <i class="fas fa-heart text-red-500"></i> using Google Gemini AI.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileNavLinks = document.querySelectorAll('.nav-link'); 
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        const sections = document.querySelectorAll('.section-fade-in');
+        const options = {
+            root: null, 
+            threshold: 0.1, 
+            rootMargin: "0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                } 
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        const navLinksObserver = document.querySelectorAll('.nav-link'); 
+        const pageSectionsObserver = document.querySelectorAll('section[id]'); 
+
+        window.addEventListener('scroll', () => {
+            let currentSectionId = '';
+            const headerHeight = document.querySelector('header')?.offsetHeight || 60; 
+            const scrollPosition = window.pageYOffset;
+
+            pageSectionsObserver.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollPosition >= sectionTop - headerHeight - 50 ) { 
+                   currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            if (scrollPosition < (pageSectionsObserver[0]?.offsetTop || 0) - headerHeight - 50) {
+                 currentSectionId = ''; 
+            }
+            if ((window.innerHeight + scrollPosition) >= document.body.offsetHeight - 50) { 
+                currentSectionId = pageSectionsObserver[pageSectionsObserver.length - 1]?.getAttribute('id') || currentSectionId; 
+            }
+
+            navLinksObserver.forEach(link => {
+                link.classList.remove('nav-active'); 
+                const linkHref = link.getAttribute('href');
+                if (linkHref && linkHref === `#${currentSectionId}`) {
+                    link.classList.add('nav-active'); 
+                }
+            });
+        });
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
