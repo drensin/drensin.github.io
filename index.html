@@ -56,7 +56,7 @@
         }
         /* Ensure book/article cover images fit well */
         .book-cover-img {
-            object-fit: cover; /* Changed to cover for potentially wider article images */
+            object-fit: contain; /* Use contain to ensure the whole image fits without cropping */
             height: 16rem; /* Slightly taller for book covers (h-64) */
             width: 100%;
             background-color: #f9fafb; /* Light background for empty space */
@@ -252,7 +252,7 @@
                 <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden border border-gray-100 transform hover:scale-105 transition duration-300 flex flex-col"><img src="https://m.media-amazon.com/images/I/716FYKDK1PL._AC_UF1000,1000_QL80_.gif" alt="SQL Server 6.5 Secrets Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x533/bbf7d0/15803d?text=SQL+Server+6.5';"><div class="p-6 flex flex-col flex-grow"><h3 class="text-lg font-semibold mb-4 text-gray-900 flex-grow leading-tight">SQL Server 6.5 Secrets</h3><a href="https://www.amazon.com/SQL-Server-6-5-Secrets/dp/1568846983" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium mt-auto text-sm">Learn More →</a></div></div>
             </div>
 
-            <h3 class="text-2xl font-semibold text-center mt-16 mb-10 text-gray-800">Popular Articles</h3>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mt-32 mb-10 text-gray-900">Popular Articles</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transform hover:scale-105 transition duration-300 flex flex-col">
                     <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*KxhCpugIUB1t8JZiNqVKzQ.png" alt="When Remote Work Didn’t Cover" class="book-cover-img" onerror="this.onerror=null; this.src='https://placehold.co/400x225/e0e7ff/4338ca?text=Article';">
