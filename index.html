@@ -92,9 +92,59 @@
         .profile-img {
             object-fit: cover;
         }
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 100; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 8px;
+            position: relative;
+        }
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .expertise-card {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+
+    <!-- Expertise Modal -->
+    <div id="expertiseModal" class="modal">
+        <div class="modal-content bg-white p-8 rounded-lg shadow-xl">
+            <span class="modal-close" id="expertiseModalClose">&times;</span>
+            <h3 id="expertiseModalTitle" class="text-2xl font-bold mb-4 text-gray-900"></h3>
+            <div id="expertiseModalBody" class="text-gray-700 leading-relaxed">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
 
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -151,12 +201,12 @@
     <section id="expertise" class="py-20 md:py-28 bg-white section-fade-in"> <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">Areas of Expertise</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-brain fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">AI & Machine Learning</h3><p class="text-gray-600">Strategic investment and infrastructure development for large-scale AI/ML systems.</p></div>
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-cloud fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Cloud Computing & Architecture</h3><p class="text-gray-600">Deep experience across major cloud platforms (Google Cloud, AWS) and distributed systems design.</p></div>
-                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-sitemap fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Site Reliability Engineering (SRE)</h3><p class="text-gray-600">Pioneered Google's Customer Reliability Engineering (CRE) function, expert in large-scale production engineering.</p></div>
-                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-rocket fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Startups & Entrepreneurship</h3><p class="text-gray-600">Multi-time founder with successful exits via both acquisition and IPO.</p></div>
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-mobile-alt fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Mobile & Wireless Tech</h3><p class="text-gray-600">Early innovator in mobile video streaming and wireless internet services.</p></div>
-                 <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300"><div class="text-blue-500 mb-4"><i class="fas fa-lightbulb fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Innovation & Patents</h3><p class="text-gray-600">Holder of 16 US patents across various technology domains.</p></div>
+                 <div class="expertise-card bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300" data-expertise-id="ai_ml" data-expertise-title="AI & Machine Learning"><div class="text-blue-500 mb-4"><i class="fas fa-brain fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">AI & Machine Learning</h3><p class="text-gray-600">Strategic investment and infrastructure development for large-scale AI/ML systems.</p></div>
+                <div class="expertise-card bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300" data-expertise-id="cloud_architecture" data-expertise-title="Cloud Computing & Architecture"><div class="text-blue-500 mb-4"><i class="fas fa-cloud fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Cloud Computing & Architecture</h3><p class="text-gray-600">Deep experience across major cloud platforms (Google Cloud, AWS) and distributed systems design.</p></div>
+                 <div class="expertise-card bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300" data-expertise-id="sre" data-expertise-title="Site Reliability Engineering (SRE)"><div class="text-blue-500 mb-4"><i class="fas fa-sitemap fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Site Reliability Engineering (SRE)</h3><p class="text-gray-600">Pioneered Google's Customer Reliability Engineering (CRE) function, expert in large-scale production engineering.</p></div>
+                 <div class="expertise-card bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300" data-expertise-id="startups_entrepreneurship" data-expertise-title="Startups & Entrepreneurship"><div class="text-blue-500 mb-4"><i class="fas fa-rocket fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Startups & Entrepreneurship</h3><p class="text-gray-600">Multi-time founder with successful exits via both acquisition and IPO.</p></div>
+                <div class="expertise-card bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300" data-expertise-id="mobile_wireless" data-expertise-title="Mobile & Wireless Tech"><div class="text-blue-500 mb-4"><i class="fas fa-mobile-alt fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Mobile & Wireless Tech</h3><p class="text-gray-600">Early innovator in mobile video streaming and wireless internet services.</p></div>
+                 <div class="expertise-card bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition duration-300" data-expertise-id="innovation_patents" data-expertise-title="Innovation & Patents"><div class="text-blue-500 mb-4"><i class="fas fa-lightbulb fa-2x"></i></div><h3 class="text-xl font-semibold mb-3 text-gray-900">Innovation & Patents</h3><p class="text-gray-600">Holder of 16 US patents across various technology domains.</p></div>
             </div>
         </div>
     </section>
@@ -456,6 +506,7 @@
 
         // Dynamically load content
         document.addEventListener('DOMContentLoaded', () => {
+            // Existing dynamic content loading logic
             const contentPlaceholders = document.querySelectorAll('[data-content-id]');
             contentPlaceholders.forEach(placeholder => {
                 const contentId = placeholder.getAttribute('data-content-id');
@@ -483,6 +534,55 @@
                         });
                 }
             });
+
+            // Expertise Modal Logic
+            const expertiseModal = document.getElementById('expertiseModal');
+            const expertiseModalClose = document.getElementById('expertiseModalClose');
+            const expertiseModalTitle = document.getElementById('expertiseModalTitle');
+            const expertiseModalBody = document.getElementById('expertiseModalBody');
+            const expertiseCards = document.querySelectorAll('.expertise-card');
+
+            expertiseCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const expertiseId = card.getAttribute('data-expertise-id');
+                    const expertiseTitle = card.getAttribute('data-expertise-title');
+                    if (expertiseId && expertiseTitle) {
+                        const contentPath = `content/expertise_${expertiseId}.html`;
+                        expertiseModalTitle.textContent = expertiseTitle;
+                        expertiseModalBody.innerHTML = '<p class="text-gray-400 italic">Loading details...</p>';
+                        expertiseModal.style.display = 'block';
+
+                        fetch(contentPath)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`HTTP error! status: ${response.status}`);
+                                }
+                                return response.text();
+                            })
+                            .then(html => {
+                                expertiseModalBody.innerHTML = html;
+                            })
+                            .catch(error => {
+                                console.error(`Could not load expertise content for ${expertiseId}:`, error);
+                                expertiseModalBody.innerHTML = `<p class="text-red-500 italic">Error loading details. Please try again later.</p>`;
+                            });
+                    }
+                });
+            });
+
+            if (expertiseModalClose) {
+                expertiseModalClose.onclick = function() {
+                    expertiseModal.style.display = "none";
+                    expertiseModalBody.innerHTML = ''; // Clear content
+                }
+            }
+
+            window.onclick = function(event) {
+                if (event.target == expertiseModal) {
+                    expertiseModal.style.display = "none";
+                    expertiseModalBody.innerHTML = ''; // Clear content
+                }
+            }
         });
 
     </script>
